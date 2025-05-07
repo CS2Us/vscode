@@ -6,6 +6,7 @@
 import { env } from '../../../base/common/process.js';
 import { IProductConfiguration } from '../../../base/common/product.js';
 import { ISandboxConfiguration } from '../../../base/parts/sandbox/common/sandboxTypes.js';
+import { D1ChatAgent } from './d1_chatAgent.js';
 
 /**
  * @deprecated It is preferred that you use `IProductService` if you can. This
@@ -49,6 +50,10 @@ else if (globalThis._VSCODE_PRODUCT_JSON && globalThis._VSCODE_PACKAGE_JSON) {
 			version: pkg.version
 		});
 	}
+
+	Object.assign(product, {
+		defaultChatAgent: D1ChatAgent
+	});
 }
 
 // Web environment or unknown

@@ -1,0 +1,42 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "main": "./out/main",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "contributes": {
+    "chatParticipants": [
+      {
+        "id": "chat-sample.cat",
+        "name": "cat",
+        "fullName": "Cat",
+        "description": "Meow! What can I teach you?",
+        "isSticky": true
+      },
+      {
+        "id": "chat-sample.deepseek",
+        "name": "deepseek",
+        "fullName": "DeepSeek",
+        "description": "DeepSeek AI Assistant",
+        "isSticky": true
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.99.1"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.7.15",
+    "axios": "^1.6.7",
+    "grpc-tools": "^1.13.0",
+    "grpc-web": "^1.5.0",
+    "ts-protoc-gen": "^0.15.0"
+  }
+}
