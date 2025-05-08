@@ -24,19 +24,32 @@
         "description": "DeepSeek AI Assistant",
         "isSticky": true
       }
+    ],
+    "commands": [
+      {
+        "command": "deone.preview",
+        "title": "Preview Current File",
+        "category": "Deone"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "deone.preview",
+        "key": "ctrl+shift+p",
+        "mac": "cmd+shift+p",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "engines": {
     "vscode": "^1.0.0"
-  },
-  "devDependencies": {
-    "@types/vscode": "1.99.1"
   },
   "dependencies": {
     "@grpc/proto-loader": "^0.7.15",
     "axios": "^1.6.7",
     "grpc-tools": "^1.13.0",
     "grpc-web": "^1.5.0",
+    "h3-js": "^4.2.1",
     "ts-protoc-gen": "^0.15.0"
   }
 }
