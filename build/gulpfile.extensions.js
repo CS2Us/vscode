@@ -28,7 +28,7 @@ const ext = require('./lib/extensions');
 // 	ignore: ['**/out/**', '**/node_modules/**']
 // });
 const compilations = [
-	'extensions/deone/chat/tsconfig.json'
+	// 'extensions/deone/chat/tsconfig.json'
 
 	// 'extensions/configuration-editing/tsconfig.json',
 	// 'extensions/css-language-features/client/tsconfig.json',
@@ -42,7 +42,7 @@ const compilations = [
 	// 'extensions/github/tsconfig.json',
 	// 'extensions/github-authentication/tsconfig.json',
 	// 'extensions/grunt/tsconfig.json',
-	// 'extensions/gulp/tsconfig.json',
+	'extensions/gulp/tsconfig.json',
 	// 'extensions/html-language-features/client/tsconfig.json',
 	// 'extensions/html-language-features/server/tsconfig.json',
 	// 'extensions/ipynb/tsconfig.json',
