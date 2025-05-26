@@ -18,7 +18,7 @@ import { IThemeService } from '../../../../platform/theme/common/themeService.js
 import { ITelemetryService } from '../../../../platform/telemetry/common/telemetry.js';
 import { IHoverService } from '../../../../platform/hover/browser/hover.js';
 import { IAccessibleViewInformationService } from '../../../services/accessibility/common/accessibleViewInformationService.js';
-import { IEditorGroupsService } from '../../../services/editor/common/editorGroupsService.js';
+import { IEditorService, SIDE_GROUP } from '../../../services/editor/common/editorService.js';
 
 export class MapView extends ViewPane {
 	static readonly ID = VIEW_ID;
@@ -37,7 +37,7 @@ export class MapView extends ViewPane {
 		@ITelemetryService telemetryService: ITelemetryService,
 		@IHoverService hoverService: IHoverService,
 		@IAccessibleViewInformationService accessibleViewService: IAccessibleViewInformationService,
-		@IEditorGroupsService private readonly editorGroupService: IEditorGroupsService
+		@IEditorService private readonly editorService: IEditorService
 	) {
 		super(options, keybindingService, contextMenuService, configurationService, contextKeyService, viewDescriptorService, instantiationService, openerService, themeService, hoverService, accessibleViewService);
 	}
@@ -55,8 +55,14 @@ export class MapView extends ViewPane {
 
 		// 添加点击事件
 		button.addEventListener('click', () => {
-			// 创建新的编辑组
-			this.editorGroupService.addGroup(this.editorGroupService.activeGroup, 1);
+			// 打开一个新的编辑区
+			this.editorService.openEditor({
+				resource: undefined, // 可以指定要打开的资源URI，或者不指定以打开空编辑器
+				options: {
+					pinned: true,
+					preserveFocus: false
+				}
+			}, SIDE_GROUP);
 		});
 
 		return button;
