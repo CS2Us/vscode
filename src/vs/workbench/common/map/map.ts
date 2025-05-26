@@ -3,13 +3,13 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { Location, POI } from './location';
+import { Composite } from '../../browser/composite.js';
+import { IComposite } from '../composite.js';
 
-// 附近搜索意图
-export interface NearbySearchResult {
-	type: 'nearby_search';
-	center: Location;
-	pois: POI[];
-	radius?: number;
-	category?: string;
+export interface IMapPane extends IComposite {
+
+}
+
+export class MapPane extends Composite implements IMapPane {
+
 }
