@@ -197,7 +197,7 @@ import './contrib/mcp/browser/mcp.contribution.js';
 import './contrib/interactive/browser/interactive.contribution.js';
 
 // repl
-import './contrib/deone/home/map.contribution.js';
+import './contrib/deone/browser/map.contribution.js';
 import './contrib/replNotebook/browser/repl.contribution.js';
 
 // Testing

@@ -31,6 +31,10 @@ import type { MapMarker, MapRoute } from '../../services/deone/mapInteractionSer
  */
 export class MapInput extends AbstractMapInput {
 	/**
+	 * MapInput 的类型 ID，用于标识 MapInput 的类型。
+	 */
+	public typeId: string;
+	/**
 	 * 起点（如用户当前位置或指定起点）
 	 */
 	public origin: string;
@@ -56,6 +60,7 @@ export class MapInput extends AbstractMapInput {
 	public route?: MapRoute;
 
 	constructor(params: {
+		typeId: string;
 		origin: string;
 		destination: string;
 		waypoints?: string[];
@@ -63,6 +68,7 @@ export class MapInput extends AbstractMapInput {
 		route?: MapRoute;
 	}) {
 		super();
+		this.typeId = params.typeId;
 		this.origin = params.origin;
 		this.destination = params.destination;
 		this.waypoints = params.waypoints;

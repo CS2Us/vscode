@@ -5,30 +5,58 @@
 
 import { Disposable } from '../../base/common/lifecycle.js';
 import { MapInput } from './map/mapInput.js';
+import { IComposite } from './composite.js';
+import { IInstantiationService } from '../../platform/instantiation/common/instantiation.js';
 
-export interface IMapPane {
+export const DEONE_MAP_ID = "workbench.deone.map";
+
+export interface IMapDescriptor<T extends IMapPane> {
 	/**
-	 * The assigned input of this editor.
+	 * The unique type identifier of the map. All instances
+	 * of the same `IMapPane` should have the same type
+	 * identifier.
+	 */
+	readonly typeId: string;
+
+	/**
+	 * The display name of the map.
+	 */
+	readonly name: string;
+
+	/**
+	 * Instantiates the map pane using the provided services.
+	 */
+	instantiate(instantiationService: IInstantiationService): T;
+
+	/**
+	 * Whether the descriptor is for the provided map pane.
+	 */
+	describes(mapPane: T): boolean;
+}
+
+export interface IMapPane extends IComposite {
+	/**
+	 * The assigned input of this map.
 	 */
 	readonly input: MapInput | undefined;
 
 	/**
-	 * The minimum width of this editor.
+	 * The minimum width of this map.
 	 */
 	readonly minimumWidth: number;
 
 	/**
-	 * The maximum width of this editor.
+	 * The maximum width of this map.
 	 */
 	readonly maximumWidth: number;
 
 	/**
-	 * The minimum height of this editor.
+	 * The minimum height of this map.
 	 */
 	readonly minimumHeight: number;
 
 	/**
-	 * The maximum height of this editor.
+	 * The maximum height of this map.
 	 */
 	readonly maximumHeight: number;
 
